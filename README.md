@@ -1,24 +1,32 @@
-# Python Server
+# Node.js Server
 
-This project contains a FastAPI server implemented in Python. It provides two routes for managing a task list.
+This project now contains a server implemented in Node.js. It provides two routes for managing a task list.
 
 ## Project Structure
 
-The project has the following files and directories:
+The project includes both a Node.js server and a FastAPI server, organized as follows:
 
-- `python-server/src/main.py`: This file contains the implementation of the FastAPI server with two routes. It handles adding a task to a list and retrieving the list.
+- `node-server/`: Contains the Node.js server implementation.
+  - `src/`: Source code for the Node.js server.
+    - `index.js`: Main entry point for the Node.js server.
+    - `routes/`: Contains route definitions for managing the task list.
+  - `package.json`: Lists Node.js dependencies and scripts.
+  - `Dockerfile`: Builds the Docker image for the Node.js server.
 
-- `python-server/src/__init__.py`: This file is an empty file that marks the `src` directory as a Python package.
+- `python-server/`: Contains the FastAPI server implementation.
+  - `src/`: Source code for the FastAPI server.
+    - `main.py`: Implements the FastAPI server with two routes for tasks.
+    - `__init__.py`: Marks the `src` directory as a Python package.
+  - `requirements.txt`: Lists Python dependencies for the FastAPI server.
+  - `Dockerfile`: Builds the Docker image for the FastAPI server.
 
-- `python-server/requirements.txt`: This file lists the dependencies required for the FastAPI server and other dependencies.
+- `docker-compose.yml`: Defines and runs multi-container Docker applications, including both the Node.js and FastAPI servers.
 
-- `python-server/Dockerfile`: This file is used to build a Docker image for the FastAPI server. It specifies the base image, copies the source code into the image, installs the dependencies, and sets the command to run the server.
-
-- `docker-compose.yml`: This file is used to define and run multi-container Docker applications. It specifies the services to run, their configurations, and any dependencies between them.
+- `README.md`: Project documentation and usage instructions.
 
 ## Getting Started
 
-To run the FastAPI server using Docker, follow these steps:
+To run both the FastAPI and Node.js servers using Docker, follow these steps:
 
 - Build and start the Docker containers by running the following command:
 
@@ -26,9 +34,36 @@ To run the FastAPI server using Docker, follow these steps:
   docker compose up
   ```
 
-  This command will build the Docker image for the FastAPI server and start the containers defined in the `docker-compose.yml` file.
+  This command will build the Docker images for both the FastAPI and Node.js servers and start the containers defined in the `docker-compose.yml` file.
 
-- The FastAPI server should now be running. You can access at port `8000`.
+- The FastAPI server will be available at port `8000`.
+- The new Node.js Express server will be available at port `8001`.
+
+You can access each server using their respective ports once the containers are running.
+
+### Setting up the new Node.js Express server locally
+
+If you want to run the new Node.js Express server outside of Docker:
+
+1. Navigate to the server directory:
+
+   ```shell
+   cd node-server
+   ```
+
+2. Install dependencies:
+
+   ```shell
+   npm install
+   ```
+
+3. Start the server:
+
+   ```shell
+   npm start
+   ```
+
+The Express server will start on port `8001` by default. You can access it at `http://localhost:8001`.
 
 ## API Routes
 

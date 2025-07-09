@@ -1,6 +1,5 @@
 # Simple Express Server
-
-This project is a simple Express server that listens on port 8001. It is designed to be lightweight and easy to set up for development purposes.
+This project is a simple Express server that listens on port 8001. It now uses a dedicated `migrations` directory for managing database schema changes. Migration scripts are executed automatically on server startup to ensure your database is up to date. This setup is designed to be lightweight and easy to set up for development purposes.
 
 ## Project Structure
 
